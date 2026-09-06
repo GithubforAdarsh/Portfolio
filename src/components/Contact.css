@@ -291,3 +291,29 @@
     gap: 16px;
   }
 }
+
+@media (max-width: 600px) {
+  .contact-panel-left,
+  .contact-terminal-box {
+    padding: 18px;
+  }
+  .philosophy-banner {
+    padding: 16px;
+  }
+  .quote-text {
+    font-size: 0.875rem;
+  }
+  .channels-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-panel-left,
+  .contact-terminal-box {
+    padding: 14px;
+  }
+  .term-input {
+    font-size: 0.75rem;
+  }
+}

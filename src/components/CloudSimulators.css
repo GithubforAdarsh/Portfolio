@@ -650,8 +650,67 @@
   }
   .sim-header {
     flex-direction: column;
+    gap: 16px;
   }
   .alb-algos-wrap {
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .sim-content-card {
+    padding: 16px;
+  }
+  .sim-actions-top {
+    flex-direction: column;
+    width: 100%;
+  }
+  .sim-actions-top .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .instances-grid {
+    grid-template-columns: 1fr;
+  }
+  .asg-gauges-row {
+    grid-template-columns: 1fr;
+  }
+  .algo-pills {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .alb-targets-grid {
+    grid-template-columns: 1fr;
+  }
+  .bootstrap-terminal {
+    padding: 10px;
+  }
+  .terminal-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .terminal-code {
+    font-size: 0.625rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sns-modal-card {
+    padding: 16px;
+    margin: 10px;
+  }
+  .sns-json-block {
+    font-size: 0.625rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .sim-heading {
+    font-size: 1.25rem;
+  }
+  .lab-tab {
+    padding: 8px 10px;
+    font-size: 0.6875rem;
   }
 }

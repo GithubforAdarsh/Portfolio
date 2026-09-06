@@ -609,3 +609,57 @@
     position: static;
   }
 }
+
+@media (max-width: 680px) {
+  .arch-control-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+  .control-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .arch-diagram {
+    padding: 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .vpc-boundary {
+    padding: 12px;
+    gap: 12px;
+  }
+  .subnet-box {
+    padding: 12px;
+  }
+  .waterfall-step {
+    padding: 6px 10px;
+    font-size: 0.625rem;
+  }
+  .step-latency {
+    width: 50px;
+  }
+  .step-status {
+    width: auto;
+    max-width: 100px;
+    font-size: 0.625rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .step-status {
+    display: none;
+  }
+  .topology-mode-bar {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  .mode-btn {
+    padding: 5px 8px;
+    font-size: 0.625rem;
+  }
+  .arch-section {
+    padding: 50px 0;
+  }
+}

@@ -30,7 +30,12 @@ export const SystemStateController: React.FC = () => {
     setCommandPaletteOpen
   } = useSystemState();
 
-  const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [collapsed, setCollapsed] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 1024;
+    }
+    return false;
+  });
 
   const getStateColor = (state: SystemStateType) => {
     switch (state) {
@@ -49,15 +54,28 @@ export const SystemStateController: React.FC = () => {
   };
 
   return (
-    <div className={`sys-controller-dock ${collapsed ? 'collapsed' : ''}`} aria-label="Global Infrastructure Controller">
-      <div className="controller-header mono">
-        <div className="header-left">
-          <span className={`status-dot ${getStateColor(systemState)} pulse`}></span>
-          <span className="controller-title">CHAOS &amp; INFRA CONTROLLER</span>
-          <span className={`badge badge-${getStateColor(systemState)} mono state-badge`}>
-            {systemState}
-          </span>
-        </div>
+    <>
+      {/* Scrim backdrop on mobile when expanded */}
+      {!collapsed && (
+        <div 
+          className="controller-mobile-backdrop" 
+          onClick={() => setCollapsed(true)} 
+          aria-hidden="true" 
+        />
+      )}
+
+      <aside 
+        className={`sys-controller-dock ${collapsed ? 'collapsed' : 'expanded'}`} 
+        aria-label="Global Infrastructure Controller"
+      >
+        <div className="controller-header mono" onClick={() => collapsed && setCollapsed(false)}>
+          <div className="header-left">
+            <span className={`status-dot ${getStateColor(systemState)} pulse`}></span>
+            <span className="controller-title">CHAOS &amp; INFRA</span>
+            <span className={`badge badge-${getStateColor(systemState)} mono state-badge`}>
+              {systemState}
+            </span>
+          </div>
 
         <div className="header-actions">
           <button 
@@ -147,6 +165,7 @@ export const SystemStateController: React.FC = () => {
           </div>
         </div>
       )}
-    </div>
+      </aside>
+    </>
   );
 };

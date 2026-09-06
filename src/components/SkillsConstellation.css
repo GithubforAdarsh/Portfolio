@@ -166,3 +166,22 @@
   gap: 12px;
   color: var(--text-muted);
 }
+
+@media (max-width: 640px) {
+  .skills-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-node {
+    padding: 16px;
+  }
+  .cat-pill {
+    padding: 6px 10px;
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .skill-name {
+    font-size: 0.875rem;
+  }
+}

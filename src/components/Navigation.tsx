@@ -153,7 +153,8 @@ export const Navigation: React.FC<NavigationProps> = ({
             aria-label="Open System Diagnostics HUD"
           >
             <span className={`status-indicator ${alarmActive ? 'amber' : ''}`}></span>
-            <span className="status-label">SYS: {systemState} ({latency}ms)</span>
+            <span className="status-label-full">SYS: {systemState} ({latency}ms)</span>
+            <span className="status-label-short">{latency}ms</span>
             <span className="hud-key-hint">[~]</span>
           </button>
 
@@ -198,7 +199,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -208,8 +209,12 @@ export const Navigation: React.FC<NavigationProps> = ({
         <div className="mobile-drawer" role="dialog" aria-modal="true">
           <div className="mobile-drawer-header mono">
             <span>SYS_NAV_EXPLORER</span>
-            <button onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
-              <X size={20} />
+            <button 
+              className="drawer-close-btn"
+              onClick={() => setMobileMenuOpen(false)} 
+              aria-label="Close menu"
+            >
+              <X size={18} />
             </button>
           </div>
           <nav className="mobile-nav-list">
@@ -233,7 +238,8 @@ export const Navigation: React.FC<NavigationProps> = ({
               }}
               className="btn btn-outline-cyan mono w-full"
             >
-              OPEN COMMAND PALETTE (⌘K)
+              <Search size={14} />
+              <span>COMMAND PALETTE (⌘K)</span>
             </button>
             <button
               onClick={() => {
@@ -242,16 +248,40 @@ export const Navigation: React.FC<NavigationProps> = ({
               }}
               className="btn btn-primary mono w-full"
             >
-              OPEN RECRUITER HUD
+              <Activity size={14} />
+              <span>RECRUITER 10s HUD</span>
             </button>
             <a
               href="/ADARSH_CLOUD_DEVOPS_RESUME.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary mono w-full"
+              onClick={() => setMobileMenuOpen(false)}
             >
-              DOWNLOAD RESUME PDF
+              <FileText size={14} />
+              <span>DOWNLOAD RESUME PDF</span>
             </a>
+            <div className="mobile-drawer-toggles">
+              <button
+                onClick={() => {
+                  toggleSound();
+                  audioSynth.playNodeSelect();
+                }}
+                className={`drawer-toggle-btn mono ${soundEnabled ? 'active' : ''}`}
+                aria-label="Toggle Sound"
+              >
+                {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
+                <span>SOUND: {soundEnabled ? 'ON' : 'MUTED'}</span>
+              </button>
+              <button
+                onClick={onToggleReducedMotion}
+                className={`drawer-toggle-btn mono ${reducedMotion ? 'active' : ''}`}
+                aria-label="Toggle Motion"
+              >
+                <Zap size={14} />
+                <span>MOTION: {reducedMotion ? 'REDUCED' : 'FULL'}</span>
+              </button>
+            </div>
           </div>
         </div>
       )}
