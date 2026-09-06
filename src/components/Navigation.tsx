@@ -106,43 +106,57 @@ export const Navigation: React.FC<NavigationProps> = ({
   const navItems = [
     { 
       id: 'sys-hero', 
-      label: '01.SYS_INIT', 
+      code: '01',
+      labelFull: '01.SYS_INIT', 
+      labelCompact: '01.INIT',
       subLabel: 'System initialization, profile & live topology', 
       icon: Terminal 
     },
     { 
       id: 'architecture', 
-      label: '02.ARCH_MAP', 
+      code: '02',
+      labelFull: '02.ARCH_MAP', 
+      labelCompact: '02.ARCH',
       subLabel: 'Interactive AWS multi-topology architecture & packet tracer', 
       icon: Layers 
     },
     { 
       id: 'flagships', 
-      label: '03.FLAGSHIPS', 
+      code: '03',
+      labelFull: '03.FLAGSHIPS', 
+      labelCompact: '03.APPS',
       subLabel: '3-Tier scalable Node.js architecture & MNIST AI platform', 
       icon: Cpu 
     },
     { 
       id: 'simulators', 
-      label: '04.SIMULATORS', 
+      code: '04',
+      labelFull: '04.SIMULATORS', 
+      labelCompact: '04.SIMS',
       subLabel: 'Auto Scaling fleet, ALB fault injection & CloudWatch SNS', 
       icon: Sliders 
     },
     { 
       id: 'systems-map', 
-      label: '05.SKILLS_GRAPH', 
+      code: '05',
+      labelFull: '05.SKILLS_GRAPH', 
+      labelCompact: '05.SKILLS',
       subLabel: '8-category filterable systems, DevOps & cloud matrix', 
       icon: GitBranch 
     },
     { 
       id: 'timeline', 
-      label: '06.DEPLOYMENTS', 
+      code: '06',
+      labelFull: '06.DEPLOYMENTS', 
+      labelCompact: '06.DEPL',
       subLabel: 'Career timeline, education & AWS credential badges', 
       icon: Activity 
     },
     { 
       id: 'contact', 
-      label: '07.CONNECT', 
+      code: '07',
+      labelFull: '07.CONNECT', 
+      labelCompact: '07.CONN',
       subLabel: 'Encrypted transmission terminal & verified channels', 
       icon: Send 
     },
@@ -191,7 +205,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             </div>
           </a>
 
-          {/* Desktop Nav Links (01 to 07) */}
+          {/* Desktop Nav Links (Responsive Mode A Full / Mode B Condensed) */}
           <nav className="nav-links" aria-label="Main Navigation">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -202,10 +216,12 @@ export const Navigation: React.FC<NavigationProps> = ({
                   href={`#${item.id}`}
                   className={`nav-link mono ${isActive ? 'active' : ''}`}
                   aria-current={isActive ? 'page' : undefined}
+                  title={`${item.labelFull} — ${item.subLabel}`}
                   onClick={() => audioSynth.playNodeSelect()}
                 >
-                  <Icon size={14} className="nav-link-icon" />
-                  <span>{item.label}</span>
+                  <Icon size={13} className="nav-link-icon" />
+                  <span className="nav-label-full">{item.labelFull}</span>
+                  <span className="nav-label-compact">{item.labelCompact}</span>
                   {isActive && <span className="active-pill" />}
                 </a>
               );
@@ -269,7 +285,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             >
               <Zap size={14} />
               <span className="motion-label-full">{reducedMotion ? 'MOTION: OFF' : 'MOTION: ON'}</span>
-              <span className="motion-label-short">{reducedMotion ? 'OFF' : 'ON'}</span>
+              <span className="motion-label-compact">{reducedMotion ? 'OFF' : 'ON'}</span>
             </button>
 
             {/* Resume Quick Link */}
@@ -281,8 +297,8 @@ export const Navigation: React.FC<NavigationProps> = ({
               title="View Resume PDF (opens in new tab)"
               onClick={() => audioSynth.playNodeSelect()}
             >
-              <FileText size={14} />
-              <span>RESUME</span>
+              <FileText size={13} />
+              <span className="resume-label">RESUME</span>
             </a>
 
             {/* Mobile / Tablet Menu Toggle */}
@@ -378,7 +394,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                         </div>
                         <div className="route-info">
                           <div className="route-title-row mono">
-                            <span className="route-code">{item.label}</span>
+                            <span className="route-code">{item.labelFull}</span>
                             {isActive && <span className="active-tag">● ACTIVE LOCATION</span>}
                           </div>
                           <div className="route-sub">{item.subLabel}</div>
