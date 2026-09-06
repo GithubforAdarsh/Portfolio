@@ -1,0 +1,231 @@
+.timeline-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.timeline-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.t-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 34, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.t-tab:hover {
+  border-color: var(--border-medium);
+  color: #ffffff;
+  background: var(--bg-card-hover);
+}
+
+.t-tab.active {
+  color: var(--color-cyan);
+  border-color: var(--color-cyan);
+  background: rgba(0, 240, 255, 0.08);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+}
+
+/* Timeline Layout */
+.timeline-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.timeline-track {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.timeline-entry {
+  display: flex;
+  gap: 24px;
+  position: relative;
+}
+
+.entry-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.marker-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  box-shadow: 0 0 10px var(--color-cyan);
+  margin-top: 24px;
+}
+
+.marker-dot.green {
+  background: var(--color-healthy);
+  box-shadow: 0 0 10px var(--color-healthy);
+}
+
+.marker-line {
+  flex: 1;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-top: 8px;
+}
+
+.timeline-entry:last-child .marker-line {
+  display: none;
+}
+
+.entry-content {
+  flex: 1;
+  padding: 28px;
+  background: rgba(10, 16, 24, 0.9);
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 20px;
+}
+
+.entry-role {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 6px 0 2px 0;
+}
+
+.entry-company {
+  font-size: 0.9375rem;
+  color: var(--color-cyan);
+  font-weight: 600;
+}
+
+.entry-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 0.75rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+}
+
+.entry-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bullets-heading {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.bullet-row {
+  display: flex;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+.bullet-check {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Certifications Grid */
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.cert-card {
+  padding: 24px;
+  background: rgba(10, 16, 24, 0.9);
+  border-color: rgba(245, 158, 11, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.cert-badge-wrap {
+  width: 44px;
+  height: 44px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.cert-issuer {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.cert-type {
+  font-size: 0.75rem;
+  color: var(--color-cyan);
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.cert-footer {
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.6875rem;
+}
+
+@media (max-width: 680px) {
+  .entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .entry-meta {
+    align-items: flex-start;
+  }
+  .timeline-entry {
+    gap: 14px;
+  }
+}

@@ -1,0 +1,116 @@
+.other-projects-wrapper {
+  margin-top: 60px;
+  padding-top: 50px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.sub-section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.sub-section-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin-bottom: 28px;
+}
+
+.other-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.other-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background: rgba(10, 16, 24, 0.85);
+}
+
+.other-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.other-icon-wrap {
+  width: 38px;
+  height: 38px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.other-meta-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.proj-period {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+
+.other-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.other-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.other-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.other-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+.bp-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.other-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.tag-pill {
+  font-size: 0.6875rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 7px;
+  border-radius: 3px;
+  color: var(--text-muted);
+}
